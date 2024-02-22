@@ -1,6 +1,7 @@
 <?php
 $apiHost = getenv("API_HOST");
 $dataAux = "Lourdes";
+$a = $data['Name'];
 $names = [
   'Jose',
   'Susana',
@@ -8,6 +9,6 @@ $names = [
   "Kio"
 ];
 
-return [$apiHost, $dataAux, $names];
+return [$apiHost, $dataAux, $names, $a];
 //echo $dataAux;
 ?>
