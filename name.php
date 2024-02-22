@@ -6,6 +6,6 @@ $names = [
   'Susana'
 ];
 
-return [$apiHost, $dataAux, $names];
+//return [$apiHost, $dataAux, $names];
 //echo $dataAux;
 ?>
