@@ -4,7 +4,8 @@ $dataAux = "Lourdes";
 $names = [
   'Jose',
   'Susana',
-  "juan"
+  "juan",
+  "Kio"
 ];
 
 return [$apiHost, $dataAux, $names];
