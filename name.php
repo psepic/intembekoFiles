@@ -3,9 +3,10 @@ $apiHost = getenv("API_HOST");
 $dataAux = "Lourdes";
 $names = [
   'Jose',
-  'Susana'
+  'Susana',
+  "juan"
 ];
 
-//return [$apiHost, $dataAux, $names];
+return [$apiHost, $dataAux, $names];
 //echo $dataAux;
 ?>
