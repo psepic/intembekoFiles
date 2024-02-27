@@ -95,9 +95,6 @@ $html .= '<!-- Nav pills -->
     <ul class="nav nav-pills nav-justified" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" data-bs-toggle="pill" href=".general" val="">General</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link active" data-bs-toggle="pill" href=".general" val="">Test</a>
         </li>';
         foreach ($dashboardTypes as $dashboard) {
             $html .= '<li class="nav-item">
@@ -164,6 +161,10 @@ $html .= '<!-- Nav pills -->
                 </div>
                 <div class="col-md-3">
                     <div id="containerReturnedFromPend"></div>
+                </div>
+                <div class="col-md-3">
+                    <div id="containerOpenExceptions"></div>
+                    <div id="containerCompletedExceptions"></div>
                 </div>
                 <div class="col-md-3 d-none">
                     <div id="containerCorrections"></div>
@@ -935,6 +936,17 @@ $html .= '
                     }));
                     let pointReturnedFromPend = chartReturnedFromPend.series[0].points[0];
                     pointReturnedFromPend.update(pointReturnedFromPend.y);";
+
+                    /**=========================== Open Exceptions Count ===========================**/
+                    $html .= "// The Rolled over gauge
+                    var openExceptionsCount = json.data[0] ? json.data[0].totalException : 0;
+                    $('#containerOpenExceptions').html(`<div class='mt-1'>
+                        <div style='background: white; cursor: pointer; padding-top: 0.45rem; padding-left: 2rem; padding-right: 2rem; padding-bottom: 2rem;'>
+                        <h3 style='font-size: 1.2em; color: rgb(51, 51, 51); font-weight: bold; text-align: center; fill: rgb(51, 51, 51); font-family: Helvetica, Arial, sans-serif;'>Open Exceptions</h3>
+                        <h1 style='text-align:center; font-size:4em; color: rgb(102, 102, 102);'>`+openExceptionsCount+`</h1>
+                        <h5 style='text-align:center; font-size: 12px; opacity: 0.4; font-weight: bold;font-family: Helvetica, Arial, sans-serif;'>cases</h5>
+                        </span>
+                    </div>`);";
 
                     /**=========================== Bars  Count ===========================**/
                     $html .= "// The Feeder Fund gauge
