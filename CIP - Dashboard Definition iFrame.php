@@ -95,6 +95,9 @@ $html .= '<!-- Nav pills -->
     <ul class="nav nav-pills nav-justified" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" data-bs-toggle="pill" href=".general" val="">General</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link active" data-bs-toggle="pill" href=".general" val="">Test</a>
         </li>';
         foreach ($dashboardTypes as $dashboard) {
             $html .= '<li class="nav-item">
