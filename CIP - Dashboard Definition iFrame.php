@@ -948,6 +948,17 @@ $html .= '
                         </span>
                     </div>`);";
 
+                    /**=========================== Completed Exceptions Comp Count ===========================**/
+                    $html .= "// The Rolled over gauge
+                    var completedExceptionsCount = json.data[0] ? json.data[0].totalExceptionCompleted : 0;
+                    $('#containerCompletedExceptions').html(`<div class='mt-1'>
+                        <div style='background: white; cursor: pointer; padding-top: 0.45rem; padding-left: 2rem; padding-right: 2rem; padding-bottom: 2rem;'>
+                        <h3 style='font-size: 1.2em; color: rgb(51, 51, 51); font-weight: bold; text-align: center; fill: rgb(51, 51, 51); font-family: Helvetica, Arial, sans-serif;'>Completed Exceptions</h3>
+                        <h1 style='text-align:center; font-size:4em; color: rgb(102, 102, 102);'>`+completedExceptionsCount+`</h1>
+                        <h5 style='text-align:center; font-size: 12px; opacity: 0.4; font-weight: bold;font-family: Helvetica, Arial, sans-serif;'>cases</h5>
+                        </span>
+                    </div>`);";
+
                     /**=========================== Bars  Count ===========================**/
                     $html .= "// The Feeder Fund gauge
                     Highcharts.chart('containerBars', {
