@@ -166,6 +166,9 @@ $html .= '<!-- Nav pills -->
                     <div id="containerOpenExceptions"></div>
                     <div id="containerCompletedExceptions"></div>
                 </div>
+                <div class="col-md-3">
+                    <div id="containerReturnedFromTheAuthoriser"></div>
+                </div>
                 <div class="col-md-3 d-none">
                     <div id="containerCorrections"></div>
                 </div>
@@ -983,6 +986,51 @@ $html .= '
                         <h5 style='text-align:center; font-size: 12px; opacity: 0.4; font-weight: bold;font-family: Helvetica, Arial, sans-serif;'>cases</h5>
                         </span>
                     </div>`);";
+
+                    /**=========================== Returned From Pending Count ===========================**/
+                    $html .= "// The Returned From Pending gauge
+                    var returnedFromTheAuthoriser = json.data[0] ? json.data[0].returnAuthorise : 0;
+                    const chartReturnedFromTheAuthoriser = Highcharts.chart('containerReturnedFromTheAuthoriser', Highcharts.merge(gaugeOptions, {
+                        title: { text: 'Returned from the Authoriser'},
+                        yAxis: {
+                            min: 0,
+                            max:  totalCount,
+                            title: { text: '' }
+                        },
+                        credits: { enabled: false },
+                        series: [{
+                            cursor: 'pointer',
+                            name: 'Returned from the Authoriser',
+                            data: [{
+                                name: 'Returned from the Authoriser',
+                                y: returnedFromTheAuthoriser,
+                                view: 'VW_TOTAL_COUNT_CASES_RECEIVED',
+                            }],
+                            dataLabels: {
+                                format:
+                                    '<div style=\'text-align:center\'>' +
+                                    '<span style=\'font-size:25px\'>{y}</span><br/>' +
+                                    '<span style=\'font-size:12px;opacity:0.4\'>cases</span>' +
+                                    '</div>'
+                            },
+                            tooltip: {
+                                valueSuffix: ' cases'
+                            },
+                            events: {
+                                click: function () {
+                                        if (this.name) {
+                                            dataView = this.options.data[0].view;
+                                            taskView = 'Returned from the Authoriser';
+                                            currentStatus = '';
+                                            exception = '';
+                                            $('#myModal').modal('show');
+                                        }
+                                    }
+                            }
+                        }]
+                    }));
+                    let pointReturnedFromTheAuthoriser = chartReturnedFromTheAuthoriser.series[0].points[0];
+                    pointReturnedFromTheAuthoriser.update(pointReturnedFromTheAuthoriser.y);";
 
                     /**=========================== Bars  Count ===========================**/
                     $html .= "// The Feeder Fund gauge
