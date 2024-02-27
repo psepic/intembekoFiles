@@ -298,7 +298,7 @@ $html .= '
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.js"></script>
     <script type="text/javascript">
         var totalCount = 0;
-        var dataView = taskView = currentStatus = dashboardType = "";
+        var dataView = taskView = currentStatus = dashboardType = exception = "";
         // Pipelining function for DataTables. To be used to the `ajax` option of DataTables
         $.fn.dataTable.pipeline = function ( opts ) {
             // Configuration options
@@ -356,6 +356,7 @@ $html .= '
                     request.table = conf.alternativeReportName != "" ? "" : dataView ?? "";
                     request.task = conf.alternativeReportName != "" ? "" : taskView ?? "";
                     request.currentStatus = conf.alternativeReportName != "" ? "" : currentStatus ?? "";
+                    request.exception = conf.alternativeReportName != "" ? "" : exception ?? "";
                     request.timeZone = "'.($data['timeZone'] ?? '').'";
                     request.dashboardType = dashboardType ?? "";
                     let newData = {"data": JSON.stringify(request)}
@@ -453,6 +454,21 @@ $html .= '
             dataView = 'VW_ROLLED_OVER_COUNTING';
             taskView = '';
             currentStatus = '';
+            exception = '';
+            $('#myModal').modal('show');
+        });
+        $('#containerOpenExceptions').click(function(){
+            dataView = 'VW_TOTAL_COUNT_CASES_RECEIVED';
+            taskView = '';
+            currentStatus = '';
+            exception = '';
+            $('#myModal').modal('show');
+        });
+        $('#containerCompletedExceptions').click(function(){
+            dataView = 'VW_AUTHORISED_COUNT';
+            taskView = '';
+            currentStatus = '';
+            exception = '';
             $('#myModal').modal('show');
         });";
         $html .= '
@@ -524,6 +540,7 @@ $html .= '
                                                 dataView = this.view;
                                                 taskView = "";
                                                 currentStatus = "";
+                                                exception = "";
                                                 $("#myModal").modal("show");
                                             }
                                         }
@@ -577,6 +594,7 @@ $html .= '
                                             dataView = this.name;
                                             taskView = '';
                                             currentStatus = '';
+                                            exception = '';
                                             $('#myModal').modal('show');
                                         }
                                     }
@@ -622,6 +640,7 @@ $html .= '
                                             dataView = this.name;
                                             taskView = '';
                                             currentStatus = '';
+                                            exception = '';
                                             $('#myModal').modal('show');
                                         }
                                     }
@@ -668,6 +687,7 @@ $html .= '
                                                 dataView = this.view;
                                                 taskView = this.task;
                                                 currentStatus = '';
+                                                exception = '';
                                                 $('#myModal').modal('show');
                                             }
                                         }
@@ -753,6 +773,7 @@ $html .= '
                                             dataView = 'VW_AUTHORISED_COUNT';
                                             taskView = '';
                                             currentStatus = '';
+                                            exception = '';
                                             $('#myModal').modal('show');
                                         }
                                     }
@@ -794,6 +815,7 @@ $html .= '
                                             dataView = this.options.data[0].view;
                                             taskView = this.options.data[0].task;
                                             currentStatus = '';
+                                            exception = '';
                                             $('#myModal').modal('show');
                                         }
                                     }
@@ -839,6 +861,7 @@ $html .= '
                                             dataView = this.options.data[0].view;
                                             taskView = this.options.data[0].element_name;
                                             currentStatus = this.options.data[0].currentStatus;
+                                            exception = '';
                                             $('#myModal').modal('show');
                                         }
                                     }
@@ -883,6 +906,7 @@ $html .= '
                                             dataView = this.options.data[0].view;
                                             taskView = this.options.data[0].task;
                                             currentStatus = '';
+                                            exception = '';
                                             $('#myModal').modal('show');
                                         }
                                     }
@@ -928,6 +952,7 @@ $html .= '
                                             dataView = this.options.data[0].view;
                                             taskView = this.options.data[0].element_name;
                                             currentStatus = this.options.data[0].currentStatus;
+                                            exception = '';
                                             $('#myModal').modal('show');
                                         }
                                     }
