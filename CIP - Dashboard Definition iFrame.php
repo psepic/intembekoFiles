@@ -461,14 +461,14 @@ $html .= '
             dataView = 'VW_TOTAL_COUNT_CASES_RECEIVED';
             taskView = '';
             currentStatus = '';
-            exception = '';
+            exception = 'Yes';
             $('#myModal').modal('show');
         });
         $('#containerCompletedExceptions').click(function(){
             dataView = 'VW_AUTHORISED_COUNT';
             taskView = '';
             currentStatus = '';
-            exception = '';
+            exception = 'Yes';
             $('#myModal').modal('show');
         });";
         $html .= '
