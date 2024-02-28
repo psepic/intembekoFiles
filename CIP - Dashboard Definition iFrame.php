@@ -478,6 +478,9 @@ $html .= '
         $(document).ready(function() {
             getSpecificDashboard("");
             $("#myModal").on("shown.bs.modal", function (event) {
+console.log("table");
+console.log(table);
+
                 let table = new DataTable("#TablePipelineReport", {
                     "processing": true,
                     "serverSide": true,
