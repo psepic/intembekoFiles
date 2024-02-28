@@ -478,16 +478,18 @@ $html .= '
         $(document).ready(function() {
             getSpecificDashboard("");
             $("#myModal").on("shown.bs.modal", function (event) {
-console.log("table");
-console.log(table);
-
+                console.log("table2");
+                if ( $.fn.dataTable.isDataTable("#TablePipelineReport") ) {
+                    $("#TablePipelineReport").DataTable().destroy();
+                    $("#TablePipelineReport").empty();
+                }
                 let table = new DataTable("#TablePipelineReport", {
                     "processing": true,
                     "serverSide": true,
                     "bDestroy": true,
                     "ajax": $.fn.dataTable.pipeline( {
                         url: "'.$apiHost.'/pstools/script/get-data-json-dashboard-detail",
-                        pages: 2,
+                        pages: 1,
                     } ),
                     "columns": '.json_encode($columns).',
                     "columnDefs": [{
