@@ -478,10 +478,7 @@ $html .= '
         $(document).ready(function() {
             getSpecificDashboard("");
             $("#myModal").on("shown.bs.modal", function (event) {
-                console.log("table2");
                 if ( $.fn.dataTable.isDataTable("#TablePipelineReport") ) {
-//$("#TablePipelineReport").DataTable().destroy();
-
                     $("#TablePipelineReport").empty();
                 }
                 let table = new DataTable("#TablePipelineReport", {
@@ -1376,6 +1373,9 @@ $html .= '
             } );
         }
         function dataTableByAgents() {
+            if ( $.fn.dataTable.isDataTable("#tableByAgents") ) {
+                $("#tableByAgents").empty();
+            }
             let tableByAgents = new DataTable("#tableByAgents", {
                 "processing": true,
                 "serverSide": true,
