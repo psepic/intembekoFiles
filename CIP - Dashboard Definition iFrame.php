@@ -480,7 +480,8 @@ $html .= '
             $("#myModal").on("shown.bs.modal", function (event) {
                 console.log("table2");
                 if ( $.fn.dataTable.isDataTable("#TablePipelineReport") ) {
-                    $("#TablePipelineReport").DataTable().destroy();
+//$("#TablePipelineReport").DataTable().destroy();
+
                     $("#TablePipelineReport").empty();
                 }
                 let table = new DataTable("#TablePipelineReport", {
