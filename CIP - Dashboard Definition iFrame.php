@@ -1434,8 +1434,6 @@ $html .= '
                                     point: {
                                         events: {
                                             click: function () {
-                                                console.log("parameters->");
-                                                console.log(this);
                                                 if (this.view) {
                                                     dataView = this.view;
                                                     taskView = "MM&&FF";
