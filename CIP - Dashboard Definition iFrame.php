@@ -117,7 +117,7 @@ $html .= '<!-- Nav pills -->
             <figure class="highcharts-figure">
                 <div id="containerTotal"></div>
             </figure>
-            <div class="row mt-2 d-none">
+            <div class="row mt-2">
                 <div class="col-md-6 d-none">
                     <figure class="highcharts-figure">
                         <div id="containerMM" class="chart-container2"></div>
