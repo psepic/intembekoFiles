@@ -1452,7 +1452,7 @@ $html .= '
                                 colorByPoint: true,
                                 data: [{
                                     name: title,
-                                    cutoff: subtitle,
+                                    cutoff: subTitle,
                                     y: totalCount,
                                     view: "VW_TOTAL_COUNT_CASES_RECEIVED"
                                 }]
