@@ -1434,25 +1434,14 @@ $html .= '
                                     point: {
                                         events: {
                                             click: function () {
-                                                console.log("parameters");
+                                                console.log("parameters->");
                                                 console.log(this);
                                                 if (this.view) {
-                                                    /*
                                                     dataView = this.view;
-                                                    taskView = "";
-                                                    currentStatus = "";
-                                                    exception = "";
-                                                    //
-                                                    dataView = this.options.data[0].view;
-                                                    taskView = "Returned from the Authoriser";
-                                                    currentStatus = "";
-                                                    exception = "";
-                                                    dataView = this.options.data[0].view;
-                                                    taskView = this.options.data[0].element_name;
-                                                    currentStatus = this.options.data[0].currentStatus;
-                                                    exception = "";
+                                                    taskView = "MM&&FF";
+                                                    currentStatus = this.cutoff;
+                                                    exception = this.name;
                                                     $("#myModal").modal("show");
-                                                    */
                                                 }
                                             }
                                         }
