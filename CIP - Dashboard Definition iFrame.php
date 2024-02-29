@@ -128,7 +128,7 @@ $html .= '<!-- Nav pills -->
                         <div id="containerFF" class="chart-container2"></div>
                     </figure>
                 </div>
-                <figure class="highcharts-figure">
+                <figure class="highcharts-figure d-none">
                     <div id="containerBars"></div>
                 </figure>
             </div>
@@ -178,7 +178,7 @@ $html .= '<!-- Nav pills -->
             </div>
         </div>
     </div>
-    <div class="row p-1 pt-3" id="dUT" style="background: #f1f1f1; display:none; text-align:center; display: ruby-text;">
+    <div class="row p-1 pt-3 dUT" style="background: #f1f1f1; display:none; text-align:center; display: ruby-text;">
     </div>
     <!-- DataTable Agents -->
     <div class="row p-1 mt-3 dGeneral" style="background: #FFF;">
@@ -403,7 +403,7 @@ $html .= '
         $('.nav-pills a').click(function(){
             $(this).tab('show');
             $('.dGeneral').hide('hide');
-            $('#dUT').hide('hide');
+            $('.dUT').hide('hide');
             dashboardType = $(this).attr('val');
             getSpecificDashboard(dashboardType);
             if (dashboardType == 'UT') {
@@ -1394,9 +1394,9 @@ $html .= '
                 },
                 "success":  function ( json ) {
                     let records = json.data
-                    $("#dUT").html("");
+                    $(".dUT").html("");
                     for (let cnt = 0; cnt < records.length; cnt++) {
-                        $("#dUT").append(`<div class="col-md-2" id="chart_` + cnt + `"></div>`);
+                        $(".dUT").append(`<div class="col-md-2" id="chart_` + cnt + `"></div>`);
                     }
                     ';
                     /**=========================== Total Count ===========================**/
@@ -1461,7 +1461,7 @@ $html .= '
                     }';
                     $html .= '
                     // Already load
-                    $("#dUT").show();
+                    $(".dUT").show();
                 },
                 "complete": function(){
                     loader("hide");
