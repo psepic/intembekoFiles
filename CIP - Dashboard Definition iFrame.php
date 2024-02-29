@@ -178,6 +178,8 @@ $html .= '<!-- Nav pills -->
             </div>
         </div>
     </div>
+    <div class="row p-1 pt-3" id="dUT" style="background: red;">
+    </div>
     <!-- DataTable Agents -->
     <div class="row p-1 mt-3 dGeneral" style="background: #FFF;">
         <div class="col-md-12">
@@ -401,8 +403,12 @@ $html .= '
         $('.nav-pills a').click(function(){
             $(this).tab('show');
             $('.dGeneral').hide('hide');
+            $('#dUT').hide('hide');
             dashboardType = $(this).attr('val');
             getSpecificDashboard(dashboardType);
+            if (dashboardType == 'UT') {
+                getMMFFDashboard(dashboardType);
+            }
         })
         ";
         // Gauge Definition
@@ -1366,6 +1372,82 @@ $html .= '
                     $html .= '
                     // Already load
                     $(".dGeneral").show();
+                },
+                "complete": function(){
+                    loader("hide");
+                }
+            } );
+        }
+        function getMMFFDashboard(dashboardType) {
+            let request = {};
+            request.timeZone = "'.($data['timeZone'] ?? '').'";
+            request.dashboardType = dashboardType ?? "";
+            let newData = {"data": JSON.stringify(request)}
+            $.ajax( {
+                "type":     "post",
+                "url":      "'.$apiHost.'/pstools/script/get-data-json-for-mm-and-ff",
+                "data":     newData,
+                "dataType": "json",
+                "cache":    false,
+                "beforeSend": function (xhr){
+                    loader("show");
+                },
+                "success":  function ( json ) {
+                    console.log("->",json.data);';
+                    /**=========================== Total Count ===========================**/
+                    /*$html .= 'totalCount = json.data[0] ? json.data[0].VW_TOTAL_COUNT_CASES_RECEIVED : 0;
+                    // Create the chart
+                    Highcharts.chart("containerTotal", {
+                        chart: {
+                            type: "pie",
+                            height: "110%",
+                        },
+                        title: {
+                            text: "Total count of cases"
+                        },
+                        subtitle: {
+                            useHTML: true,
+                            text: getSubtitle(totalCount),
+                            floating: true,
+                            verticalAlign: "middle",
+                            y: 30
+                        },
+                        credits: { enabled: false},
+                        legend: { enabled: true },
+                        plotOptions: {
+                            series: {
+                                cursor: "pointer",
+                                size: "100%",
+                                innerSize: "65%",
+                                point: {
+                                    events: {
+                                        click: function () {
+                                            if (this.view) {
+                                                dataView = this.view;
+                                                taskView = "";
+                                                currentStatus = "";
+                                                exception = "";
+                                                $("#myModal").modal("show");
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        },
+                        colors: ["#6D5959"],
+                        series: [{
+                            name: "Total",
+                            colorByPoint: true,
+                            data: [{
+                                name: "Total count of cases",
+                                y: totalCount,
+                                view: "VW_TOTAL_COUNT_CASES_RECEIVED"
+                            }]
+                        }]
+                    });';*/
+                    $html .= '
+                    // Already load
+                    $("#dUT").show();
                 },
                 "complete": function(){
                     loader("hide");
