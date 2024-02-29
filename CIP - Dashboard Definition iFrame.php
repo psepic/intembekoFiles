@@ -1396,7 +1396,8 @@ $html .= '
                 },
                 "success":  function ( json ) {
                     let records = json.data
-                    console.log("->",record);
+console.log("->", records);
+
                     $("#dUT").html("");
                     for (let cnt = 0; cnt < records.length; cnt++) {
                         $("#dUT").append(`<div class="col-md-3" id="chart_` + cnt + `"></div>`);
