@@ -178,7 +178,7 @@ $html .= '<!-- Nav pills -->
             </div>
         </div>
     </div>
-    <div class="row p-1 pt-3" id="dUT" style="background: red; display:none;">
+    <div class="row p-1 pt-3" id="dUT" style="background: #f1f1f1; display:none; text-align:center;">
     </div>
     <!-- DataTable Agents -->
     <div class="row p-1 mt-3 dGeneral" style="background: #FFF;">
@@ -1400,7 +1400,7 @@ console.log("->", records);
 
                     $("#dUT").html("");
                     for (let cnt = 0; cnt < records.length; cnt++) {
-                        $("#dUT").append(`<div class="col-md-3" id="chart_` + cnt + `"></div>`);
+                        $("#dUT").append(`<div class="col-md-2" id="chart_` + cnt + `"></div>`);
                     }
                     ';
                     /**=========================== Total Count ===========================**/
@@ -1418,7 +1418,8 @@ console.log("->", records);
                                 height: "100%",
                             },
                             title: {
-                                text: title + "\n" + subTitle
+                                userHTML: true,
+                                text: "<b>"+ title + "</b><br><small>"+ subTitle + "</small>"
                             },
                             subtitle: {
                                 useHTML: true,
@@ -1428,7 +1429,7 @@ console.log("->", records);
                                 y: 30
                             },
                             credits: { enabled: false},
-                            legend: { enabled: true },
+                            legend: { enabled: false },
                             plotOptions: {
                                 series: {
                                     cursor: "pointer",
@@ -1449,7 +1450,7 @@ console.log("->", records);
                                     }
                                 }
                             },
-                            colors: ["#6D5959"],
+                            colors: ["#F5AB69"],
                             series: [{
                                 name: "Total",
                                 colorByPoint: true,
