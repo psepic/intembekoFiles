@@ -128,7 +128,7 @@ $html .= '<!-- Nav pills -->
                         <div id="containerFF" class="chart-container2"></div>
                     </figure>
                 </div>
-                <figure class="highcharts-figure d-none">
+                <figure class="highcharts-figure">
                     <div id="containerBars"></div>
                 </figure>
             </div>
