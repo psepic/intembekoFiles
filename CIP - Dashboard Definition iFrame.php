@@ -1422,7 +1422,7 @@ $html .= '
                                 text: getSubtitle(totalCount),
                                 floating: true,
                                 verticalAlign: "middle",
-                                y: 30
+                                y: 40
                             },
                             credits: { enabled: false},
                             legend: { enabled: false },
@@ -1430,16 +1430,29 @@ $html .= '
                                 series: {
                                     cursor: "pointer",
                                     size: "100%",
-                                    innerSize: "65%",
+                                    innerSize: "75%",
                                     point: {
                                         events: {
                                             click: function () {
+                                                console.log("parameters");
+                                                console.log(this);
                                                 if (this.view) {
+                                                    /*
                                                     dataView = this.view;
                                                     taskView = "";
                                                     currentStatus = "";
                                                     exception = "";
+                                                    //
+                                                    dataView = this.options.data[0].view;
+                                                    taskView = "Returned from the Authoriser";
+                                                    currentStatus = "";
+                                                    exception = "";
+                                                    dataView = this.options.data[0].view;
+                                                    taskView = this.options.data[0].element_name;
+                                                    currentStatus = this.options.data[0].currentStatus;
+                                                    exception = "";
                                                     $("#myModal").modal("show");
+                                                    */
                                                 }
                                             }
                                         }
