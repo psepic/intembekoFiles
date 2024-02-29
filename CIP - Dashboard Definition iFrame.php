@@ -178,7 +178,7 @@ $html .= '<!-- Nav pills -->
             </div>
         </div>
     </div>
-    <div class="row p-1 pt-3" id="dUT" style="background: red;">
+    <div class="row p-1 pt-3 d-none" id="dUT" style="background: red;">
     </div>
     <!-- DataTable Agents -->
     <div class="row p-1 mt-3 dGeneral" style="background: #FFF;">
@@ -510,6 +510,7 @@ $html .= '
             request.timeZone = "'.($data['timeZone'] ?? '').'";
             request.dashboardType = dashboardType ?? "";
             let newData = {"data": JSON.stringify(request)}
+            /*
             $.ajax( {
                 "type":     "post",
                 "url":      "'.$apiHost.'/pstools/script/get-data-json-dashboard-general",
@@ -1377,6 +1378,7 @@ $html .= '
                     loader("hide");
                 }
             } );
+            */
         }
         function getMMFFDashboard(dashboardType) {
             let request = {};
@@ -1393,7 +1395,13 @@ $html .= '
                     loader("show");
                 },
                 "success":  function ( json ) {
-                    console.log("->",json.data);';
+                    let records = json.data
+                    console.log("->",record);
+                    $("#dUT").html("");
+                    for (let cnt = 0; cnt < records.length; cnt++) {
+                        $("#dUT").append(`<div class="col-md-3" id="chart_` + cnt + `"></div>`);
+                    }
+                    ';
                     /**=========================== Total Count ===========================**/
                     /*$html .= 'totalCount = json.data[0] ? json.data[0].VW_TOTAL_COUNT_CASES_RECEIVED : 0;
                     // Create the chart
