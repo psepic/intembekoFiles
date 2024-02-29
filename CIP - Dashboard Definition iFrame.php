@@ -510,7 +510,6 @@ $html .= '
             request.timeZone = "'.($data['timeZone'] ?? '').'";
             request.dashboardType = dashboardType ?? "";
             let newData = {"data": JSON.stringify(request)}
-            /*
             $.ajax( {
                 "type":     "post",
                 "url":      "'.$apiHost.'/pstools/script/get-data-json-dashboard-general",
@@ -1378,7 +1377,6 @@ $html .= '
                     loader("hide");
                 }
             } );
-            */
         }
         function getMMFFDashboard(dashboardType) {
             let request = {};
@@ -1453,6 +1451,8 @@ $html .= '
                                 name: "Total",
                                 colorByPoint: true,
                                 data: [{
+                                    name: title,
+                                    cutoff: subtitle,
                                     y: totalCount,
                                     view: "VW_TOTAL_COUNT_CASES_RECEIVED"
                                 }]
