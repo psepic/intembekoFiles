@@ -178,7 +178,7 @@ $html .= '<!-- Nav pills -->
             </div>
         </div>
     </div>
-    <div class="row p-1 pt-3 d-none" id="dUT" style="background: red;">
+    <div class="row p-1 pt-3" id="dUT" style="background: red; display:none;">
     </div>
     <!-- DataTable Agents -->
     <div class="row p-1 mt-3 dGeneral" style="background: #FFF;">
@@ -1404,56 +1404,63 @@ console.log("->", records);
                     }
                     ';
                     /**=========================== Total Count ===========================**/
-                    /*$html .= 'totalCount = json.data[0] ? json.data[0].VW_TOTAL_COUNT_CASES_RECEIVED : 0;
-                    // Create the chart
-                    Highcharts.chart("containerTotal", {
-                        chart: {
-                            type: "pie",
-                            height: "110%",
-                        },
-                        title: {
-                            text: "Total count of cases"
-                        },
-                        subtitle: {
-                            useHTML: true,
-                            text: getSubtitle(totalCount),
-                            floating: true,
-                            verticalAlign: "middle",
-                            y: 30
-                        },
-                        credits: { enabled: false},
-                        legend: { enabled: true },
-                        plotOptions: {
-                            series: {
-                                cursor: "pointer",
-                                size: "100%",
-                                innerSize: "65%",
-                                point: {
-                                    events: {
-                                        click: function () {
-                                            if (this.view) {
-                                                dataView = this.view;
-                                                taskView = "";
-                                                currentStatus = "";
-                                                exception = "";
-                                                $("#myModal").modal("show");
+                    $html .= '
+                    let totalCount = 0;
+                    let title = subTitle ="";
+                    for (let cnt = 0; cnt < records.length; cnt++) {
+                        totalCount = records[cnt].total ?? 0;
+                        title = records[cnt].displayCutOff ?? "";
+                        subTitle = records[cnt].clientCutOff ?? "";
+                        // Create the chart
+                        Highcharts.chart("chart_" + cnt, {
+                            chart: {
+                                type: "pie",
+                                height: "100%",
+                            },
+                            title: {
+                                text: title + "\n" + subTitle
+                            },
+                            subtitle: {
+                                useHTML: true,
+                                text: getSubtitle(totalCount),
+                                floating: true,
+                                verticalAlign: "middle",
+                                y: 30
+                            },
+                            credits: { enabled: false},
+                            legend: { enabled: true },
+                            plotOptions: {
+                                series: {
+                                    cursor: "pointer",
+                                    size: "100%",
+                                    innerSize: "65%",
+                                    point: {
+                                        events: {
+                                            click: function () {
+                                                if (this.view) {
+                                                    dataView = this.view;
+                                                    taskView = "";
+                                                    currentStatus = "";
+                                                    exception = "";
+                                                    $("#myModal").modal("show");
+                                                }
                                             }
                                         }
                                     }
                                 }
-                            }
-                        },
-                        colors: ["#6D5959"],
-                        series: [{
-                            name: "Total",
-                            colorByPoint: true,
-                            data: [{
-                                name: "Total count of cases",
-                                y: totalCount,
-                                view: "VW_TOTAL_COUNT_CASES_RECEIVED"
+                            },
+                            colors: ["#6D5959"],
+                            series: [{
+                                name: "Total",
+                                colorByPoint: true,
+                                data: [{
+                                    name: title,
+                                    y: totalCount,
+                                    view: "VW_TOTAL_COUNT_CASES_RECEIVED"
+                                }]
                             }]
-                        }]
-                    });';*/
+                        });
+                    }';
                     $html .= '
                     // Already load
                     $("#dUT").show();
