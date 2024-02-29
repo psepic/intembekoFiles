@@ -178,7 +178,7 @@ $html .= '<!-- Nav pills -->
             </div>
         </div>
     </div>
-    <div class="row p-1 pt-3" id="dUT" style="background: #f1f1f1; display:none; text-align:center;">
+    <div class="row p-1 pt-3" id="dUT" style="background: #f1f1f1; display:none; text-align:center; display: ruby-text;">
     </div>
     <!-- DataTable Agents -->
     <div class="row p-1 mt-3 dGeneral" style="background: #FFF;">
@@ -1396,8 +1396,6 @@ $html .= '
                 },
                 "success":  function ( json ) {
                     let records = json.data
-console.log("->", records);
-
                     $("#dUT").html("");
                     for (let cnt = 0; cnt < records.length; cnt++) {
                         $("#dUT").append(`<div class="col-md-2" id="chart_` + cnt + `"></div>`);
@@ -1455,7 +1453,6 @@ console.log("->", records);
                                 name: "Total",
                                 colorByPoint: true,
                                 data: [{
-                                    name: title,
                                     y: totalCount,
                                     view: "VW_TOTAL_COUNT_CASES_RECEIVED"
                                 }]
