@@ -133,6 +133,7 @@ $html .= '<!-- Nav pills -->
                 </figure>
             </div>
             <div id="containerRolledOver"></div>
+            <div id="containerSLAPerformance"></div>
         </div>
         <div class="col-md-9">
             <div class="row">
@@ -168,9 +169,6 @@ $html .= '<!-- Nav pills -->
                 </div>
                 <div class="col-md-3">
                     <div id="containerReturnedFromTheAuthoriser"></div>
-                </div>
-                <div class="col-md-3">
-                    <div id="containerSLAPerformance"></div>
                 </div>
                 <div class="col-md-3 d-none">
                     <div id="containerCorrections"></div>
