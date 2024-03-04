@@ -1327,10 +1327,10 @@ $html .= '
                                             console.log(this);
                                             if (this.view) {
                                                 dataView = this.view;
-                                                taskView = 'MM&&FF';
-                                                currentStatus = this.cutoff;
-                                                exception = this.name;
-                                                // $('#myModal').modal('show');
+                                                taskView = this.chart;
+                                                currentStatus = '';
+                                                exception = '';
+                                                $('#myModal').modal('show');
                                             }
                                         }
                                     }
@@ -1344,7 +1344,9 @@ $html .= '
                                     color: Highcharts.getOptions().colors[0],
                                     radius: '112%',
                                     innerRadius: '88%',
-                                    y: exceptionSLA
+                                    y: exceptionSLA,
+                                    chart: 'exceptionSLA',
+                                    view: 'VW_SLA_PERFORMANCE'
                                 }],
                                 custom: {
                                     icon: 'filter',
@@ -1356,7 +1358,9 @@ $html .= '
                                     color: Highcharts.getOptions().colors[1],
                                     radius: '87%',
                                     innerRadius: '63%',
-                                    y: querySLA
+                                    y: querySLA,
+                                    chart: 'querySLA',
+                                    view: 'VW_SLA_PERFORMANCE'
                                 }],
                                 custom: {
                                     icon: 'comments-o',
@@ -1368,7 +1372,9 @@ $html .= '
                                     color: Highcharts.getOptions().colors[2],
                                     radius: '62%',
                                     innerRadius: '38%',
-                                    y: overallDaily
+                                    y: overallDaily,
+                                    chart: 'overallDaily',
+                                    view: 'VW_SLA_PERFORMANCE'
                                 }],
                                 custom: {
                                     icon: 'commenting-o',
