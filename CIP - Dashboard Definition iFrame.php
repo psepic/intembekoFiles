@@ -169,11 +169,11 @@ $html .= '<!-- Nav pills -->
                 <div class="col-md-3">
                     <div id="containerReturnedFromTheAuthoriser"></div>
                 </div>
-                <div class="col-md-3 d-none">
-                    <div id="containerCorrections"></div>
+                <div class="col-md-3">
+                    <div id="containerSLAPerformance"></div>
                 </div>
                 <div class="col-md-3 d-none">
-                    <div id="containerSLAPerformance"></div>
+                    <div id="containerCorrections"></div>
                 </div>
             </div>
         </div>
@@ -1247,11 +1247,12 @@ $html .= '
                             ]
                         }
                     });";
-                    /**=========================== Corrections Count ===========================**/
+                    /**=========================== SLA Performance Count ===========================**/
                     $html .= "// The SLA Performance
-                    const trackColors = Highcharts.getOptions().colors.map(color =>
-                        new Highcharts.Color(color).setOpacity(0.3).get()
-                    );
+                    var exceptionSLA = json.data[0] ? json.data[0].exceptionSLA : 0;
+                    var querySLA = json.data[0] ? json.data[0].querySLA : 0;
+                    var overallDaily = json.data[0] ? json.data[0].overallDaily : 0;
+                    const trackColors = Highcharts.getOptions().colors.map(color => new Highcharts.Color(color).setOpacity(0.3).get());
                     Highcharts.chart('containerSLAPerformance', {
                         chart: {
                             type: 'solidgauge',
@@ -1326,7 +1327,7 @@ $html .= '
                                     color: Highcharts.getOptions().colors[0],
                                     radius: '112%',
                                     innerRadius: '88%',
-                                    y: 80
+                                    y: exceptionSLA
                                 }],
                                 custom: {
                                     icon: 'filter',
@@ -1338,7 +1339,7 @@ $html .= '
                                     color: Highcharts.getOptions().colors[1],
                                     radius: '87%',
                                     innerRadius: '63%',
-                                    y: 65
+                                    y: querySLA
                                 }],
                                 custom: {
                                     icon: 'comments-o',
@@ -1350,7 +1351,7 @@ $html .= '
                                     color: Highcharts.getOptions().colors[2],
                                     radius: '62%',
                                     innerRadius: '38%',
-                                    y: 50
+                                    y: overallDaily
                                 }],
                                 custom: {
                                     icon: 'commenting-o',
