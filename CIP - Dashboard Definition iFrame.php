@@ -1254,8 +1254,8 @@ $html .= '
                     // querySLA = parseFloat(querySLA);
                     // overallDaily = parseFloat(overallDaily);
                     //const trackColors = Highcharts.getOptions().colors.map(color => new Highcharts.Color(color).setOpacity(0.3).get());
-                    const color = ['##E7A65F', '#A86A42', '#000']
-                    const trackColor = [ '#ffd6bc', '#ffd6bc', '#ffd6bc' ];
+                    const BackgroundColors = ['##E7A65F', '#A86A42', '#000']
+                    const trackColors = [ '#ffd6bc', '#ffd6bc', '#ffd6bc' ];
                     Highcharts.chart('containerSLAPerformance', {
                         chart: {
                             type: 'solidgauge',
@@ -1339,7 +1339,7 @@ $html .= '
                             {
                                 name: 'Exception SLA',
                                 data: [{
-                                    color: color[0],
+                                    color: BackgroundColors[0],
                                     radius: '112%',
                                     innerRadius: '88%',
                                     y: exceptionSLA,
@@ -1353,7 +1353,7 @@ $html .= '
                             }, {
                                 name: 'Query SLA',
                                 data: [{
-                                    color: color[1],
+                                    color: BackgroundColors[1],
                                     radius: '87%',
                                     innerRadius: '63%',
                                     y: querySLA,
@@ -1367,7 +1367,7 @@ $html .= '
                             }, {
                                 name: 'SLA',
                                 data: [{
-                                    color: color[2],
+                                    color: BackgroundColors[2],
                                     radius: '62%',
                                     innerRadius: '38%',
                                     y: overallDaily,
