@@ -1252,9 +1252,9 @@ $html .= '
                     var exceptionSLA = json.data[0] ? json.data[0].exceptionSLA : 0;
                     var querySLA = json.data[0] ? json.data[0].querySLA : 0;
                     var overallDaily = json.data[0] ? json.data[0].overallDaily : 0;
-                    exceptionSLA = parseFloat(15.33);
-                    querySLA = 45;
-                    overallDaily = 45;
+                    exceptionSLA = parseFloat(exceptionSLA);
+                    querySLA = parseFloat(querySLA);
+                    overallDaily = parseFloat(overallDaily);
                     const trackColors = Highcharts.getOptions().colors.map(color => new Highcharts.Color(color).setOpacity(0.3).get());
                     Highcharts.chart('containerSLAPerformance', {
                         chart: {
