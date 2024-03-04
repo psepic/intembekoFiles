@@ -1254,8 +1254,8 @@ $html .= '
                     // querySLA = parseFloat(querySLA);
                     // overallDaily = parseFloat(overallDaily);
                     //const trackColors = Highcharts.getOptions().colors.map(color => new Highcharts.Color(color).setOpacity(0.3).get());
-                    const BackgroundColors = ['##E7A65F', '#A86A42', '#000']
-                    const trackColors = [ '#ffd6bc', '#ffd6bc', '#ffd6bc' ];
+                    const BackgroundColors = ['#E7A65F', '#A86A42', '#000']
+                    const trackColors = [ '#ffd6bc', 'rgba(168, 106, 66, 0.5)', '#dddddd' ];
                     Highcharts.chart('containerSLAPerformance', {
                         chart: {
                             type: 'solidgauge',
