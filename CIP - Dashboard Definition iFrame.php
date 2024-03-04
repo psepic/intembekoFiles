@@ -1323,8 +1323,6 @@ $html .= '
                                 point: {
                                     events: {
                                         click: function () {
-                                            console.log('this');
-                                            console.log(this);
                                             if (this.view) {
                                                 dataView = this.view;
                                                 taskView = this.chart;
