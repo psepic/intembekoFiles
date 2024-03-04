@@ -1249,12 +1249,12 @@ $html .= '
                     });";
                     /**=========================== SLA Performance Count ===========================**/
                     $html .= "// The SLA Performance
-                    var exceptionSLA = json.data[0] ? json.data[0].exceptionSLA : 0;
-                    var querySLA = json.data[0] ? json.data[0].querySLA : 0;
-                    var overallDaily = json.data[0] ? json.data[0].overallDaily : 0;
-                    exceptionSLA = parseFloat(exceptionSLA);
-                    querySLA = parseFloat(querySLA);
-                    overallDaily = parseFloat(overallDaily);
+                    var exceptionSLA = parseFloat(json.data[0] ? json.data[0].exceptionSLA : 0);
+                    var querySLA = parseFloat(json.data[0] ? json.data[0].querySLA : 0);
+                    var overallDaily = parseFloat(json.data[0] ? json.data[0].overallDaily : 0);
+                    // exceptionSLA = parseFloat(exceptionSLA);
+                    // querySLA = parseFloat(querySLA);
+                    // overallDaily = parseFloat(overallDaily);
                     const trackColors = Highcharts.getOptions().colors.map(color => new Highcharts.Color(color).setOpacity(0.3).get());
                     Highcharts.chart('containerSLAPerformance', {
                         chart: {
@@ -1262,7 +1262,6 @@ $html .= '
                             height: '110%',
                             events: {}
                         },
-
                         title: {
                             text: 'SLA Performance',
                         },
@@ -1284,7 +1283,6 @@ $html .= '
                                 };
                             }
                         },
-
                         pane: {
                             startAngle: 0,
                             endAngle: 360,
@@ -1305,14 +1303,12 @@ $html .= '
                                 borderWidth: 0
                             }]
                         },
-
                         yAxis: {
                             min: 0,
                             max: 100,
                             lineWidth: 0,
                             tickPositions: []
                         },
-
                         plotOptions: {
                             solidgauge: {
                                 dataLabels: {
@@ -1321,6 +1317,24 @@ $html .= '
                                 linecap: 'round',
                                 stickyTracking: false,
                                 rounded: true
+                            },
+                            series: {
+                                cursor: 'pointer',
+                                point: {
+                                    events: {
+                                        click: function () {
+                                            console.log('this');
+                                            console.log(this);
+                                            if (this.view) {
+                                                dataView = this.view;
+                                                taskView = 'MM&&FF';
+                                                currentStatus = this.cutoff;
+                                                exception = this.name;
+                                                // $('#myModal').modal('show');
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         },
                         series: [
