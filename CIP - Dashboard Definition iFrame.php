@@ -63,7 +63,8 @@ $sqlAgents .= " WHERE R.data->>'$.CIP_VR_REPORT_NAME' = 'Dashboard by Agents' ";
 $sqlAgents .= " AND fieldsTable.statusVariable = 'ACTIVE'";
 $getSqlAgentsColumns = apiGuzzle($apiHost . $apiSql, "POST", encodeSql($sqlAgents));
 
-$sqlAgentsColumnExist = "SHOW COLUMNS FROM VW_TOTAL_IN_PROGRESS_TRACKING";
+$sqlAgentsColumnExist = "SHOW COLUMNS FROM VW_IN_PROGRESS_TRACKING_REQUEST";
+
 $getSqlAgentsColumnsExist = apiGuzzle($apiHost . $apiSql, "POST", encodeSql($sqlAgentsColumnExist));
 
 $allAgentsColumns = array_column($getSqlAgentsColumnsExist, 'Field');
