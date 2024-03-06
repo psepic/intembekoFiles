@@ -63,19 +63,9 @@ $sqlAgents .= " WHERE R.data->>'$.CIP_VR_REPORT_NAME' = 'Dashboard by Agents' ";
 $sqlAgents .= " AND fieldsTable.statusVariable = 'ACTIVE'";
 $getSqlAgentsColumns = apiGuzzle($apiHost . $apiSql, "POST", encodeSql($sqlAgents));
 
-$sqlAgentsColumnExist = "SHOW COLUMNS FROM VW_TOTAL_IN_PROGRESS_TRACKING";
-$getSqlAgentsColumnsExist = apiGuzzle($apiHost . $apiSql, "POST", encodeSql($sqlAgentsColumnExist));
-
-$allAgentsColumns = array_column($getSqlAgentsColumnsExist, 'Field');
-array_unshift($allAgentsColumns, "no");
-
 $columnsAgentsHead = [];
 foreach ($getSqlAgentsColumns as $row) {
     $columnsAgentsHead[] = ["value" => $row['variable'], "label" => $row['label']];
-    // $resp = array_search($row['variable'], $allAgentsColumns);
-    // if ($resp != false) {
-    //     $columnsAgentsHead[] = ["value" => $row['variable'], "label" => $row['label']];
-    // }
 }
 //Generate header table
 $html = '<html><head><link href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.9.2/semantic.min.css" type="text/css" rel="stylesheet">';
