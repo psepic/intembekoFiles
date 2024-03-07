@@ -727,7 +727,7 @@ $html .= '
                                         name: 'Authorisation Stage',
                                         y: totalAuthorisationCount,
                                         view: 'VW_TOTAL_COUNT_CASES_RECEIVED',
-                                        task: 'Allocated for Authorisation,Authorisation Instruction'
+                                        task: 'Authorisation Backlog,Allocated for Authorisation,Authorisation Instruction'
                                     },
                                     {
                                         name: 'Capture Stage',
@@ -739,7 +739,7 @@ $html .= '
                                         name: 'Validation Stage',
                                         y: totalValidationCount,
                                         view: 'VW_TOTAL_COUNT_CASES_RECEIVED',
-                                        task: 'Validate Instruction,Allocated for Validation'
+                                        task: 'Validation Backlog,Validate Instruction,Allocated for Validation'
                                     }
                                 ]
                             }
