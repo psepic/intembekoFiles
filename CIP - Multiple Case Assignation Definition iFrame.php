@@ -319,8 +319,11 @@ $html .= '
                 alert("here");
                 let tr = e.target.closest("tr");
                 let row = table.row(tr);
+console.log("row->", row);
+
                 if (!row.child.isShown()) {
-                    drawDetail(row.data(), modalAudit)
+//drawDetail(row.data(), modalAudit)
+
                 }
             });
         } );
