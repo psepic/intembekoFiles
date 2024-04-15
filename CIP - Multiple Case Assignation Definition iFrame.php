@@ -315,6 +315,14 @@ $html .= '
                 },
                 order: [[1, "asc"]]
             } );
+            table.on("click", "td.dt-body-center", function (e) {
+                alert("here");
+                let tr = e.target.closest("tr");
+                let row = table.row(tr);
+                if (!row.child.isShown()) {
+                    drawDetail(row.data(), modalAudit)
+                }
+            });
         } );
     </script>
     ';
